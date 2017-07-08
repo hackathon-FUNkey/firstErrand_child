@@ -23,16 +23,29 @@ public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizer
     @IBOutlet weak var recordButton: UIButton!
     
     var locationManager: CLLocationManager!
+    var tmpParentMessages: [ParentMessage] = []
+    var parentMessages: [ParentMessage] = []
+    var timer:Timer?
     
     // MARK: UIViewController
+    
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setParentMessages()
+        
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(speechNewParentMessage), userInfo: nil, repeats: true)
+        }
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTmpParentMessages()
+        
         // Disable the record buttons until authorization has been granted.
         recordButton.isEnabled = false
-        
-        textSpeech(str: "こんにちは")
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager = CLLocationManager()
@@ -169,6 +182,45 @@ public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizer
             case .failure(let error):
                 print(error)
             }
+        }
+    }
+    
+    public func setTmpParentMessages() {
+        let request = ParentMessageRequest()
+        Session.send(request) { result in
+            switch result {
+            case .success(let response):
+                self.tmpParentMessages = response
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    public func setParentMessages() {
+        let request = ParentMessageRequest()
+        Session.send(request) { result in
+            switch result {
+            case .success(let response):
+                self.parentMessages = response
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    public func speechNewParentMessage() {
+        print("speech new parent")
+
+        setParentMessages()
+        print(self.tmpParentMessages.count)
+        print(self.parentMessages.count)
+        if self.tmpParentMessages.count != self.parentMessages.count {
+            print("speech")
+            textSpeech(str: self.parentMessages[self.parentMessages.count-1].message)
+            setTmpParentMessages()
+        }else{
+            return
         }
     }
     

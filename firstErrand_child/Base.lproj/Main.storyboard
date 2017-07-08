@@ -48,5 +48,23 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
+        <!--Speech View Controller-->
+        <scene sceneID="WC4-Kw-o8y">
+            <objects>
+                <viewController id="Ae2-mD-m74" customClass="SpeechViewController" customModule="firstErrand_child" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="71U-V4-K5U"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qko-kv-vZp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KDK-ZP-2Fv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xQP-G6-FWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="139"/>
+        </scene>
     </scenes>
 </document>

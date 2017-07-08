@@ -12,14 +12,7 @@ struct Status {
     let status: Bool
 }
 
-extension Status: Decodable {
-    static let URLTransformer = Transformer<String, URL> { URLString throws -> URL in
-        if let URL = URL(string: URLString) {
-            return URL
-        }
-        throw customError("Invalid URL string: \(URLString)")
-    }
-    
+extension Status: Decodable {    
     static func decode(_ e: Extractor) throws -> Status {
         return try Status(status: e <| "status")
     }
