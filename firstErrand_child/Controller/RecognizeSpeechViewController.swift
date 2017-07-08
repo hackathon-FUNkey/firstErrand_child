@@ -9,8 +9,10 @@
 import UIKit
 import Speech
 import APIKit
+import AVFoundation
+import CoreLocation
 
-public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizerDelegate {
+public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynthesizerDelegate, CLLocationManagerDelegate {
     // MARK: Properties
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ja_JP"))!
@@ -20,6 +22,8 @@ public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizer
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var recordButton: UIButton!
     
+    var locationManager: CLLocationManager!
+    
     // MARK: UIViewController
     
     public override func viewDidLoad() {
@@ -27,6 +31,22 @@ public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizer
         
         // Disable the record buttons until authorization has been granted.
         recordButton.isEnabled = false
+        
+        textSpeech(str: "こんにちは")
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+        }
+        
+        let status = CLLocationManager.authorizationStatus()
+        if(status == CLAuthorizationStatus.notDetermined) {
+            if (self.locationManager.responds(to: #selector(CLLocationManager.requestWhenInUseAuthorization))) {
+                self.locationManager.requestWhenInUseAuthorization()
+            }
+        }
+
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -165,4 +185,60 @@ public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizer
             recordButton.setTitle("Stop recording", for: [])
         }
     }
+    
+    func setupLocationManager() {
+        locationManager = CLLocationManager()
+        guard let locationManager = locationManager else { return }
+        
+        locationManager.requestWhenInUseAuthorization()
+        
+        let status = CLLocationManager.authorizationStatus()
+        if status == .authorizedWhenInUse {
+            locationManager.distanceFilter = 10
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.first
+        let latitude = location?.coordinate.latitude
+        let longitude = location?.coordinate.longitude
+        sendGpsData(latitude: latitude!, longitude: longitude!)
+        print("latitude: \(latitude!)\nlongitude: \(longitude!)")
+    }
+    
+    func sendGpsData(latitude: Double, longitude: Double) {
+        let postString = "lat=\(latitude)&lon=\(longitude)"
+        var request = URLRequest(url: URL(string: "https://version1.xyz/spajam2017/gps.php")!)
+        
+        request.httpMethod = "POST"
+        request.httpBody = postString.data(using: .utf8)
+        
+        let task = URLSession.shared.dataTask(with: request, completionHandler: {
+            (data, response, error) in
+            
+            if (error == nil) {
+                // API通信成功
+                print("success")
+                print("response: \(response!)")
+                print(String(data: data!, encoding: .utf8)!)
+            } else {
+                // API通信失敗
+                print("error")
+            }
+        })
+        task.resume()
+    }
+    
+    // デリゲート
+    // 読み上げ開始したときに呼ばれる
+    internal func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
+        print("読み上げ開始")
+    }
+    
+    // 読み上げ終了したときに呼ばれる
+    internal func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        print("読み上げ終了")
+    }
+
 }
