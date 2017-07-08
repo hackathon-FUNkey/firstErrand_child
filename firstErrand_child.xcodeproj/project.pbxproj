@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A3B15CE1F11426600EC2CA4 /* Tokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B15CD1F11426600EC2CA4 /* Tokenizer.swift */; };
+		4A7CEF851F1146E90077F646 /* NegativeWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7CEF841F1146E90077F646 /* NegativeWords.swift */; };
+		4A7CEF871F114D960077F646 /* NegativeWordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7CEF861F114D960077F646 /* NegativeWordRequest.swift */; };
+		4A7CEF8A1F114DD30077F646 /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7CEF891F114DD30077F646 /* APIKit.framework */; };
+		4A7CEF8C1F114DE10077F646 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7CEF8B1F114DE10077F646 /* Himotoki.framework */; };
+		4A7CEF8E1F114DF20077F646 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7CEF8D1F114DF20077F646 /* Result.framework */; };
+		4A7CEF901F114E700077F646 /* AppRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7CEF8F1F114E700077F646 /* AppRequest.swift */; };
+		4A7CEF921F114F1F0077F646 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7CEF911F114F1F0077F646 /* Status.swift */; };
 		8BF895251F11125600212887 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF895241F11125600212887 /* AppDelegate.swift */; };
-		8BF895271F11125600212887 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF895261F11125600212887 /* ViewController.swift */; };
+		8BF895271F11125600212887 /* RecognizeSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF895261F11125600212887 /* RecognizeSpeechViewController.swift */; };
 		8BF8952A1F11125600212887 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF895281F11125600212887 /* Main.storyboard */; };
 		8BF8952C1F11125600212887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF8952B1F11125600212887 /* Assets.xcassets */; };
 		8BF8952F1F11125600212887 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF8952D1F11125600212887 /* LaunchScreen.storyboard */; };
@@ -34,9 +42,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A3B15CD1F11426600EC2CA4 /* Tokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tokenizer.swift; sourceTree = "<group>"; };
+		4A7CEF841F1146E90077F646 /* NegativeWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegativeWords.swift; sourceTree = "<group>"; };
+		4A7CEF861F114D960077F646 /* NegativeWordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegativeWordRequest.swift; sourceTree = "<group>"; };
+		4A7CEF891F114DD30077F646 /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
+		4A7CEF8B1F114DE10077F646 /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/iOS/Himotoki.framework; sourceTree = "<group>"; };
+		4A7CEF8D1F114DF20077F646 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		4A7CEF8F1F114E700077F646 /* AppRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRequest.swift; sourceTree = "<group>"; };
+		4A7CEF911F114F1F0077F646 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		8BF895211F11125600212887 /* firstErrand_child.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firstErrand_child.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF895241F11125600212887 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BF895261F11125600212887 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8BF895261F11125600212887 /* RecognizeSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeSpeechViewController.swift; sourceTree = "<group>"; };
 		8BF895291F11125600212887 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BF8952B1F11125600212887 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BF8952E1F11125600212887 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +70,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7CEF8E1F114DF20077F646 /* Result.framework in Frameworks */,
+				4A7CEF8C1F114DE10077F646 /* Himotoki.framework in Frameworks */,
+				4A7CEF8A1F114DD30077F646 /* APIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +93,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A3B15CA1F11354B00EC2CA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A3B15CD1F11426600EC2CA4 /* Tokenizer.swift */,
+				4A7CEF841F1146E90077F646 /* NegativeWords.swift */,
+				4A7CEF861F114D960077F646 /* NegativeWordRequest.swift */,
+				4A7CEF8F1F114E700077F646 /* AppRequest.swift */,
+				4A7CEF911F114F1F0077F646 /* Status.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A3B15CB1F11355200EC2CA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4A3B15CC1F11355700EC2CA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8BF895261F11125600212887 /* RecognizeSpeechViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4A7CEF881F114DD30077F646 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A7CEF8D1F114DF20077F646 /* Result.framework */,
+				4A7CEF8B1F114DE10077F646 /* Himotoki.framework */,
+				4A7CEF891F114DD30077F646 /* APIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8BF895181F11125600212887 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +137,7 @@
 				8BF895381F11125600212887 /* firstErrand_childTests */,
 				8BF895431F11125700212887 /* firstErrand_childUITests */,
 				8BF895221F11125600212887 /* Products */,
+				4A7CEF881F114DD30077F646 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +154,10 @@
 		8BF895231F11125600212887 /* firstErrand_child */ = {
 			isa = PBXGroup;
 			children = (
+				4A3B15CC1F11355700EC2CA4 /* Controller */,
+				4A3B15CB1F11355200EC2CA4 /* View */,
+				4A3B15CA1F11354B00EC2CA4 /* Model */,
 				8BF895241F11125600212887 /* AppDelegate.swift */,
-				8BF895261F11125600212887 /* ViewController.swift */,
 				8BF895281F11125600212887 /* Main.storyboard */,
 				8BF8952B1F11125600212887 /* Assets.xcassets */,
 				8BF8952D1F11125600212887 /* LaunchScreen.storyboard */,
@@ -135,6 +194,7 @@
 				8BF8951D1F11125600212887 /* Sources */,
 				8BF8951E1F11125600212887 /* Frameworks */,
 				8BF8951F1F11125600212887 /* Resources */,
+				4A3B15C91F112F0600EC2CA4 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,6 +253,7 @@
 				TargetAttributes = {
 					8BF895201F11125600212887 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 64LEQXTB98;
 						ProvisioningStyle = Automatic;
 					};
 					8BF895341F11125600212887 = {
@@ -254,12 +315,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4A3B15C91F112F0600EC2CA4 /* Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/build/iOS/Himotoki.framework",
+				"$(SRCROOT)/Carthage/build/iOS/APIKit.framework",
+				"$(SRCROOT)/Carthage/build/iOS/Result.framework",
+			);
+			name = "Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8BF8951D1F11125600212887 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF895271F11125600212887 /* ViewController.swift in Sources */,
+				4A7CEF851F1146E90077F646 /* NegativeWords.swift in Sources */,
+				4A7CEF901F114E700077F646 /* AppRequest.swift in Sources */,
+				4A7CEF921F114F1F0077F646 /* Status.swift in Sources */,
+				8BF895271F11125600212887 /* RecognizeSpeechViewController.swift in Sources */,
+				4A7CEF871F114D960077F646 /* NegativeWordRequest.swift in Sources */,
+				4A3B15CE1F11426600EC2CA4 /* Tokenizer.swift in Sources */,
 				8BF895251F11125600212887 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,7 +442,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -400,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -412,6 +498,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 64LEQXTB98;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = firstErrand_child/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "funkey.spajam2017.firstErrand-child";
@@ -424,6 +515,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 64LEQXTB98;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = firstErrand_child/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "funkey.spajam2017.firstErrand-child";
@@ -505,6 +601,7 @@
 				8BF8954B1F11125700212887 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BF8954C1F11125700212887 /* Build configuration list for PBXNativeTarget "firstErrand_childTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +610,7 @@
 				8BF8954E1F11125700212887 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BF8954F1F11125700212887 /* Build configuration list for PBXNativeTarget "firstErrand_childUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +619,7 @@
 				8BF895511F11125700212887 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
