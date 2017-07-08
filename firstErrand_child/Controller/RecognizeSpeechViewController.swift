@@ -199,7 +199,7 @@ public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizer
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.first
         let latitude = location?.coordinate.latitude
         let longitude = location?.coordinate.longitude
@@ -230,14 +230,23 @@ public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizer
         task.resume()
     }
     
+    public func textSpeech(str: String) {
+        let synthesizer = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: str)
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        utterance.pitchMultiplier = 1.6
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+    }
+    
     // デリゲート
     // 読み上げ開始したときに呼ばれる
-    internal func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
+    public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
         print("読み上げ開始")
     }
     
     // 読み上げ終了したときに呼ばれる
-    internal func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+    public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         print("読み上げ終了")
     }
 
