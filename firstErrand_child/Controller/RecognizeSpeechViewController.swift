@@ -8,6 +8,7 @@
 
 import UIKit
 import Speech
+import APIKit
 
 public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizerDelegate {
     // MARK: Properties
@@ -86,6 +87,11 @@ public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizer
             if let result = result {
                 self.textView.text = result.bestTranscription.formattedString
                 isFinal = result.isFinal
+                
+                if self.isContainNegativeWord(speechText: result.bestTranscription.formattedString) {
+                    self.sendNegativeWord(speechText: result.bestTranscription.formattedString)
+                    print("send")
+                }
             }
             
             if error != nil || isFinal {
@@ -121,6 +127,28 @@ public class RecognizeSpeechViewController: UIViewController, SFSpeechRecognizer
         } else {
             recordButton.isEnabled = false
             recordButton.setTitle("Recognition not available", for: .disabled)
+        }
+    }
+    
+    public func isContainNegativeWord(speechText: String) -> Bool {
+        for negativeWord in NegativeWords().negativeWords {
+            if speechText.contains(negativeWord) {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    public func sendNegativeWord(speechText: String) {
+        let request = NegativeWordRequest(negativeWordDic: ["msg": speechText])
+        Session.send(request) { result in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     
